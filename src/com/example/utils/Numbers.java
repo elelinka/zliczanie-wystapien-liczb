@@ -3,21 +3,18 @@ package com.example.utils;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Numbers {
     public static List<Integer> getFile(String path) {
         List<Integer> fileList = new LinkedList<>();
-        List<Integer> lines = new ArrayList<>();
         String nextLine = "";
 
         try {
             FileReader reader = new FileReader(path);
             BufferedReader bufferedReader = new BufferedReader(reader);
             while ((nextLine = bufferedReader.readLine()) != null) {
-                lines.add(Integer.valueOf(nextLine));
                 fileList.add(Integer.valueOf(nextLine));
             }
         } catch (IOException e) {
