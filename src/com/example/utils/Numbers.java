@@ -7,18 +7,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Numbers {
-    public static List<Integer> getFile(String path) {
+    public static List<Integer> getFile(String path) throws IOException {
         List<Integer> fileList = new LinkedList<>();
         String nextLine = "";
 
-        try {
-            FileReader reader = new FileReader(path);
-            BufferedReader bufferedReader = new BufferedReader(reader);
-            while ((nextLine = bufferedReader.readLine()) != null) {
-                fileList.add(Integer.valueOf(nextLine));
-            }
-        } catch (IOException e) {
-            System.out.println("Nie odnaleziono pliku");
+        FileReader reader = new FileReader(path);
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        while ((nextLine = bufferedReader.readLine()) != null) {
+            fileList.add(Integer.valueOf(nextLine));
         }
         return fileList;
     }
